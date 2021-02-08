@@ -1,0 +1,2 @@
+ru/stqf/pft/addressbook/GroupCreationTests.java
+ ru.stqf.pft.addressbook.GroupCreationTests
