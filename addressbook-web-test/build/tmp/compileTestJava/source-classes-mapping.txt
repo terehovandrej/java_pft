@@ -1,2 +1,8 @@
 ru/stqf/pft/addressbook/GroupCreationTests.java
  ru.stqf.pft.addressbook.GroupCreationTests
+ru/stqf/pft/addressbook/GroupData.java
+ ru.stqf.pft.addressbook.GroupData
+ru/stqf/pft/addressbook/ContactData.java
+ ru.stqf.pft.addressbook.ContactData
+ru/stqf/pft/addressbook/ContactCreationTest.java
+ ru.stqf.pft.addressbook.ContactCreationTest
