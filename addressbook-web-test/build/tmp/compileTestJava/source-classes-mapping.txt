@@ -1,8 +1,20 @@
-ru/stqf/pft/addressbook/GroupCreationTests.java
- ru.stqf.pft.addressbook.GroupCreationTests
-ru/stqf/pft/addressbook/GroupData.java
- ru.stqf.pft.addressbook.GroupData
-ru/stqf/pft/addressbook/ContactData.java
- ru.stqf.pft.addressbook.ContactData
-ru/stqf/pft/addressbook/ContactCreationTest.java
- ru.stqf.pft.addressbook.ContactCreationTest
+ru/stqf/pft/addressbook/appmanager/NavigationHelper.java
+ ru.stqf.pft.addressbook.appmanager.NavigationHelper
+ru/stqf/pft/addressbook/appmanager/GroupHelper.java
+ ru.stqf.pft.addressbook.appmanager.GroupHelper
+ru/stqf/pft/addressbook/model/GroupData.java
+ ru.stqf.pft.addressbook.model.GroupData
+ru/stqf/pft/addressbook/tests/ContactCreationTest.java
+ ru.stqf.pft.addressbook.tests.ContactCreationTest
+ru/stqf/pft/addressbook/model/ContactData.java
+ ru.stqf.pft.addressbook.model.ContactData
+ru/stqf/pft/addressbook/appmanager/SessionHelper.java
+ ru.stqf.pft.addressbook.appmanager.SessionHelper
+ru/stqf/pft/addressbook/appmanager/ApplicationManager.java
+ ru.stqf.pft.addressbook.appmanager.ApplicationManager
+ru/stqf/pft/addressbook/tests/GroupCreationTests.java
+ ru.stqf.pft.addressbook.tests.GroupCreationTests
+ru/stqf/pft/addressbook/tests/TestBase.java
+ ru.stqf.pft.addressbook.tests.TestBase
+ru/stqf/pft/addressbook/tests/GroupDeletionTests.java
+ ru.stqf.pft.addressbook.tests.GroupDeletionTests
