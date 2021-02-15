@@ -30,6 +30,14 @@ public class ContactHelper extends HelperBase {
         }
     }
 
+    public void fillContactForm(ContactData contactData) {
+        type(By.name("firstname"), contactData.getName());
+        type(By.name("lastname"), contactData.getLastName());
+        type(By.name("mobile"), contactData.getMobilePhone());
+        type(By.name("email"), contactData.getEmail());
+        type(By.name("address"), contactData.getAddress());
+    }
+
     public void selectContact() {
         click(By.name("selected[]"));
     }
@@ -45,5 +53,14 @@ public class ContactHelper extends HelperBase {
 
     public void submitContactModification() {
         click(By.xpath("(//input[@name='update'])[2]"));
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.xpath("//img[@alt='Edit']"));
+    }
+
+    public void createContact(ContactData contact) {
+        fillContactForm(contact);
+        submitContactCreation();
     }
 }
