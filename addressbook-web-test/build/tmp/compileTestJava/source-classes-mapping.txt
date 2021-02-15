@@ -8,10 +8,10 @@ ru/stqf/pft/addressbook/appmanager/HelperBase.java
  ru.stqf.pft.addressbook.appmanager.HelperBase
 ru/stqf/pft/addressbook/model/ContactData.java
  ru.stqf.pft.addressbook.model.ContactData
-ru/stqf/pft/addressbook/appmanager/NavigationHelper.java
- ru.stqf.pft.addressbook.appmanager.NavigationHelper
 ru/stqf/pft/addressbook/appmanager/ContactHelper.java
  ru.stqf.pft.addressbook.appmanager.ContactHelper
+ru/stqf/pft/addressbook/appmanager/NavigationHelper.java
+ ru.stqf.pft.addressbook.appmanager.NavigationHelper
 ru/stqf/pft/addressbook/tests/ContactModificationTests.java
  ru.stqf.pft.addressbook.tests.ContactModificationTests
 ru/stqf/pft/addressbook/appmanager/ApplicationManager.java
