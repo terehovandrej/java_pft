@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class ContactData {
     private int id;
-    private final String name;
-    private final String lastName;
-    private final String mobilePhone;
-    private final String email;
-    private final String address;
+    private String name;
+    private String lastName;
+    private String mobilePhone;
+    private String email;
+    private String address;
     private String group;
 
 
@@ -16,25 +16,41 @@ public class ContactData {
         this.id = id;
     }
 
-    public ContactData(int id, String name, String lastName, String mobilePhone, String email, String address, String group) {
+    public ContactData whithId(int id) {
         this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.mobilePhone = mobilePhone;
-        this.email = email;
-        this.address = address;
-        this.group = group;
+        return this;
     }
 
-    public ContactData(String name, String lastName, String mobilePhone, String email, String address, String group) {
-        this.id = 0;
+    public ContactData withName(String name) {
         this.name = name;
-        this.lastName = lastName;
-        this.mobilePhone = mobilePhone;
-        this.email = email;
-        this.address = address;
-        this.group = group;
+        return this;
     }
+
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
     public int getId() {
         return id;
     }
