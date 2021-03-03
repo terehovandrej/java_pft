@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqf.pft.addressbook.model.ContactData;
+import ru.stqf.pft.addressbook.model.Contacts;
+import ru.stqf.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,13 +46,27 @@ public class ContactHelper extends HelperBase {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
+    public void selectContactById(int id) {
+        wd.findElement(By.cssSelector("input[id='" + id + "']")).click();
+    }
+
     public void deleteSelectedContacts() {
         click(By.xpath("//input[@value='Delete']"));
         wd.switchTo().alert().accept();
     }
 
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
+        deleteSelectedContacts();
+    }
+
+
     public void editSelectedContacts(int i) {
         click(By.xpath("(//img[@alt='Edit'])[" + i + "]"));
+    }
+
+    public void editSelectedContactsById(int id) {
+        click(By.xpath("//input[@id='" + id + "']/../..//img[@title='Edit']"));
     }
 
     public void submitContactModification() {
@@ -80,5 +96,23 @@ public class ContactHelper extends HelperBase {
             contacts.add(new ContactData().whithId(id).withName(name).withLastName(lastName));
         }
         return contacts;
+    }
+
+    public Contacts all() {
+        Contacts contacts= new Contacts();
+        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement element : elements){
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+            String name = element.findElement(By.xpath("./td[3]")).getText();
+            String lastName = element.findElement(By.xpath("./td[2]")).getText();
+            contacts.add(new ContactData().whithId(id).withName(name).withLastName(lastName));
+        }
+        return contacts;
+    }
+
+    public void modify(ContactData contact) {
+        editSelectedContactsById(contact.getId());
+        fillContactForm(contact);
+        submitContactModification();
     }
 }

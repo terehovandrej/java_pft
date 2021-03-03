@@ -100,4 +100,9 @@ public class ContactData {
     public String getGroup() {
         return group;
     }
+
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
 }
