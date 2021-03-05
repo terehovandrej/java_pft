@@ -1,11 +1,11 @@
+ru/stqf/pft/addressbook/model/Groups.java
+ ru.stqf.pft.addressbook.model.Groups
 ru/stqf/pft/addressbook/appmanager/GroupHelper.java
  ru.stqf.pft.addressbook.appmanager.GroupHelper
 ru/stqf/pft/addressbook/appmanager/SessionHelper.java
  ru.stqf.pft.addressbook.appmanager.SessionHelper
 ru/stqf/pft/addressbook/appmanager/HelperBase.java
  ru.stqf.pft.addressbook.appmanager.HelperBase
-ru/stqf/pft/addressbook/model/Groups.java
- ru.stqf.pft.addressbook.model.Groups
 ru/stqf/pft/addressbook/appmanager/NavigationHelper.java
  ru.stqf.pft.addressbook.appmanager.NavigationHelper
 ru/stqf/pft/addressbook/model/GroupData.java
@@ -24,6 +24,8 @@ ru/stqf/pft/addressbook/tests/GroupCreationTests.java
  ru.stqf.pft.addressbook.tests.GroupCreationTests
 ru/stqf/pft/addressbook/tests/TestBase.java
  ru.stqf.pft.addressbook.tests.TestBase
+ru/stqf/pft/addressbook/tests/ContactDataTests.java
+ ru.stqf.pft.addressbook.tests.ContactDataTests
 ru/stqf/pft/addressbook/tests/GroupModificationTests.java
  ru.stqf.pft.addressbook.tests.GroupModificationTests
 ru/stqf/pft/addressbook/appmanager/ContactHelper.java

@@ -10,15 +10,51 @@ public class ContactData {
     private String email;
     private String address;
     private String group;
+    private String homePhone;
+    private String workPhone;
+    private String allPhones;
+    private String firstEmail;
+    private String secondEmail;
+    private String thirdEmail;
+    private String allEmails;
 
-
-    public void setId(int id) {
-        this.id = id;
+    public String getAllEmails() {
+        return allEmails;
     }
 
-    public ContactData whithId(int id) {
-        this.id = id;
+    public ContactData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
         return this;
+    }
+
+    public String getFirstEmail() {
+        return firstEmail;
+    }
+
+    public ContactData withFirstEmail(String firstEmail) {
+        this.firstEmail = firstEmail;
+        return this;
+    }
+
+    public String getSecondEmail() {
+        return secondEmail;
+    }
+
+    public ContactData withSecondEmail(String secondEmail) {
+        this.secondEmail = secondEmail;
+        return this;
+    }
+
+    public String getThirdEmail() {
+        return thirdEmail;
+    }
+
+    public ContactData withThirdEmail(String thirdEmail) {
+        this.thirdEmail = thirdEmail;
+        return this;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     public ContactData withName(String name) {
@@ -36,6 +72,11 @@ public class ContactData {
         return this;
     }
 
+    public ContactData withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
+    }
+
     public ContactData withEmail(String email) {
         this.email = email;
         return this;
@@ -43,6 +84,11 @@ public class ContactData {
 
     public ContactData withAddress(String address) {
         this.address = address;
+        return this;
+    }
+
+    public ContactData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
         return this;
     }
 
@@ -105,4 +151,23 @@ public class ContactData {
         this.id = id;
         return this;
     }
+
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public String getWorkPhone() {
+        return workPhone;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
+
 }
