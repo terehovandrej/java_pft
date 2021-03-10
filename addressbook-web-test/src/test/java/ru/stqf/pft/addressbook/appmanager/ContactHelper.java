@@ -39,6 +39,8 @@ public class ContactHelper extends HelperBase {
         type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("email"), contactData.getEmail());
         type(By.name("address"), contactData.getAddress());
+        attach(By.name("photo"), contactData.getPhoto());
+
     }
 
     public void selectContact(int index) {
