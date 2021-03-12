@@ -1,20 +1,17 @@
 <list>
-  <ru.stqf.pft.addressbook.model.ContactData>
-    <id>0</id>
+  <contact>
     <name>name 0</name>
     <lastName>lastName 0</lastName>
     <homePhone>999999990</homePhone>
-  </ru.stqf.pft.addressbook.model.ContactData>
-  <ru.stqf.pft.addressbook.model.ContactData>
-    <id>0</id>
+  </contact>
+  <contact>
     <name>name 1</name>
     <lastName>lastName 1</lastName>
     <homePhone>999999991</homePhone>
-  </ru.stqf.pft.addressbook.model.ContactData>
-  <ru.stqf.pft.addressbook.model.ContactData>
-    <id>0</id>
+  </contact>
+  <contact>
     <name>name 2</name>
     <lastName>lastName 2</lastName>
     <homePhone>999999992</homePhone>
-  </ru.stqf.pft.addressbook.model.ContactData>
+  </contact>
 </list>

@@ -1,24 +1,47 @@
 package ru.stqf.pft.addressbook.tests;
 
+import com.thoughtworks.xstream.XStream;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqf.pft.addressbook.model.ContactData;
 import ru.stqf.pft.addressbook.model.Contacts;
+import ru.stqf.pft.addressbook.model.GroupData;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTest extends TestBase {
+    @DataProvider
+    public Iterator<Object[]> validContacts() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/contacts.xml"));
+        String xml = "";
+        String line = reader.readLine();
+        while (line != null){
+            xml += line;
+            line = reader.readLine();
+        }
+        XStream xStream = new XStream();
+        xStream.processAnnotations(ContactData.class);
+        List<ContactData> contacts = (List<ContactData>) xStream.fromXML(xml);
+        return contacts.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
+    }
 
-    @Test()
-    public void testContactCreation() throws Exception {
+    @Test(dataProvider = "validContacts")
+    public void testContactCreation(ContactData contact) throws Exception {
         app.goTo().gotoHome();
         Contacts before = app.contact().all();
         app.goTo().gotoContactCreation();
         File photo = new File("src/test/resources/stru.png");
-        ContactData contact = new ContactData().withName("Andrey").withLastName("Terekhov").withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com").withGroup("test1").withPhoto(photo);
+        //ContactData contact = new ContactData().withName("Andrey").withLastName("Terekhov").withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com").withGroup("test1").withPhoto(photo);
         app.contact().fillContactForm(contact);
         app.contact().submitContactCreation();
         app.goTo().gotoHome();
