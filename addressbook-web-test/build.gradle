@@ -12,6 +12,8 @@ dependencies {
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
     implementation 'com.beust:jcommander:1.48'
     implementation 'com.thoughtworks.xstream:xstream:1.4.15'
+    implementation 'mysql:mysql-connector-java:8.0.23'
+    implementation 'org.hibernate.orm:hibernate-core:6.0.0.Alpha6'
 }
 
 task testGroups (type: Test)  {

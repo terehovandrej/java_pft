@@ -2,27 +2,68 @@ package ru.stqf.pft.addressbook.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
     @XStreamOmitField
+    @Id
+    @Column(name ="id")
     private int id;
+
+    @Column(name ="firstname")
     private String name;
+
+    @Column(name ="lastname")
     private String lastName;
-    private String mobilePhone;
+
+    @Transient
     private String email;
+
+    @Column(name ="address")
+    @Type(type = "text")
     private String address;
+
+    @Transient
     private String group;
+
+    @Column(name ="mobile")
+    @Type(type = "text")
+    private String mobilePhone;
+
+    @Column(name ="home")
+    @Type(type = "text")
     private String homePhone;
+
+    @Column(name ="work")
+    @Type(type = "text")
     private String workPhone;
+
+    @Transient
     private String allPhones;
+
+    @Column(name ="email")
+    @Type(type = "text")
     private String firstEmail;
+
+    @Column(name ="email2")
+    @Type(type = "text")
     private String secondEmail;
+
+    @Column(name ="email3")
+    @Type(type = "text")
     private String thirdEmail;
+
+    @Transient
     private String allEmails;
+
+    @Transient
     private File photo;
 
     public File getPhoto() {

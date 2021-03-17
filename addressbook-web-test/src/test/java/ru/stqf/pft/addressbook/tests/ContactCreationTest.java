@@ -39,8 +39,6 @@ public class ContactCreationTest extends TestBase {
         app.goTo().gotoHome();
         Contacts before = app.contact().all();
         app.goTo().gotoContactCreation();
-        File photo = new File("src/test/resources/stru.png");
-        //ContactData contact = new ContactData().withName("Andrey").withLastName("Terekhov").withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com").withGroup("test1").withPhoto(photo);
         app.contact().fillContactForm(contact);
         app.contact().submitContactCreation();
         app.goTo().gotoHome();
