@@ -17,3 +17,4 @@ sandbox/build/classes/java/main/ru/stqa/pft/sandbox/MyFirstProgram.class
 sandbox/build/classes/java/main/ru/stqa/pft/sandbox/MyFirstProgram.class
 sandbox/src/main/java/ru/stqa/pft/sandbox/MyFirstProgram.java
 sandbox/src/main/java/ru/stqa/pft/sandbox/MyFirstProgram.java
+*.log
