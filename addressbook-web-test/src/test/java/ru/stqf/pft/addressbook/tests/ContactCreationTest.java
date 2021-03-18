@@ -6,6 +6,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqf.pft.addressbook.model.ContactData;
 import ru.stqf.pft.addressbook.model.Contacts;
+import ru.stqf.pft.addressbook.model.Groups;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

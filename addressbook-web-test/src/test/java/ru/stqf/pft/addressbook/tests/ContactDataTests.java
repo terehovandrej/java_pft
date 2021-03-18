@@ -16,7 +16,7 @@ public class ContactDataTests extends TestBase{
     public void ensurePreconditions() {
         if (! app.contact().isThereAContact()){
             app.goTo().gotoContactCreation();
-            app.contact().createContact(new ContactData().withName("Andrey").withLastName("Terekhov").withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com").withGroup("test1"));
+            app.contact().createContact(new ContactData().withName("Andrey").withLastName("Terekhov").withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com"));
             app.goTo().gotoHome();
         }
     }
