@@ -14,20 +14,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactModificationTests extends TestBase {
     @BeforeMethod
         public void ensurePreconditions() {
-        if (!app.contact().isThereAContact()) {
+        if (app.db().contacts().size() == 0){
             app.goTo().gotoContactCreation();
-            app.contact().createContact(new ContactData().withName("Andrey").withLastName("Terekhov").withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com").withGroup("test1"));
+            app.contact().createContact(new ContactData().withName("Andrey").withLastName("Terekhov")
+                    .withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com").withHomePhone("89651237160")
+                    .withWorkPhone("89651237160").withAddress("pushkina"));
             app.goTo().gotoHome();
         }
     }
     @Test
     public void testContactModification() throws Exception {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData modifiedContact = before.iterator().next();
-        ContactData contact = new ContactData().withId(modifiedContact.getId()).withName("Andrey").withLastName("Ivanov").withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com").withGroup("test1");
+        ContactData contact = new ContactData().withId(modifiedContact.getId()).withName("Vasiliy")
+                .withLastName("Ivanov").withMobilePhone("89651237160").withEmail("terehovandrej@gmail.com")
+                .withHomePhone("89651237160").withWorkPhone("89651237160").withAddress("pushkina");
         app.contact().modify(contact);
         app.goTo().gotoHome();
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         Assert.assertEquals(after.size(), before.size());
         assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
     }

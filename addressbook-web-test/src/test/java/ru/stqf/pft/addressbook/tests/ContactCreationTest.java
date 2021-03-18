@@ -37,12 +37,12 @@ public class ContactCreationTest extends TestBase {
     @Test(dataProvider = "validContacts")
     public void testContactCreation(ContactData contact) throws Exception {
         app.goTo().gotoHome();
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         app.goTo().gotoContactCreation();
         app.contact().fillContactForm(contact);
         app.contact().submitContactCreation();
         app.goTo().gotoHome();
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         Assert.assertEquals(after.size(), before.size() + 1);
         assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId()))));
     }

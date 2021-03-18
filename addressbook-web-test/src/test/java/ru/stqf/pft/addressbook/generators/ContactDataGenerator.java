@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactDataGenerator {
+    //    -f addressbook-web-test/src/test/resources/contacts.xml -c 1 -d xml
     @Parameter(names = "-c", description = "Contact count")
     public int count;
 
@@ -38,7 +39,7 @@ public class ContactDataGenerator {
     }
 
     private void run() throws IOException {
-        List<ContactData>  contacts = generateContacts(count);
+        List<ContactData> contacts = generateContacts(count);
         if (format.equals("csv")){
             saveAsCsv(contacts, new File(file));
         } else if  (format.equals("xml")) {
@@ -70,7 +71,10 @@ public class ContactDataGenerator {
     private List<ContactData> generateContacts(int count) {
         List<ContactData> contacts = new ArrayList<ContactData>();
         for (int i = 0; i < count ; i++) {
-            contacts.add(new ContactData().withName(String.format("name %s", i)).withLastName((String.format("lastName %s", i))).withHomePhone(String.format("99999999%s", i)));
+            contacts.add(new ContactData().withName(String.format("name %s", i)).withLastName((String.format("lastName %s", i)))
+                    .withHomePhone(String.format("99999999%s", i)).withMobilePhone(String.format("99999999%s", i))
+                    .withWorkPhone(String.format("99999999%s", i)).withAddress(String.format("pushkina %s", i))
+                    .withEmail(String.format("email%s@gmail.ru", i)));
         }
         return contacts;
     }

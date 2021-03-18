@@ -1,20 +1,12 @@
-name 0:lastName 0:999999990
-name 1:lastName 1:999999991
-name 2:lastName 2:999999992
-name 3:lastName 3:999999993
-name 4:lastName 4:999999994
-name 5:lastName 5:999999995
-name 6:lastName 6:999999996
-name 7:lastName 7:999999997
-name 8:lastName 8:999999998
-name 9:lastName 9:999999999
-name 10:lastName 10:9999999910
-name 11:lastName 11:9999999911
-name 12:lastName 12:9999999912
-name 13:lastName 13:9999999913
-name 14:lastName 14:9999999914
-name 15:lastName 15:9999999915
-name 16:lastName 16:9999999916
-name 17:lastName 17:9999999917
-name 18:lastName 18:9999999918
-name 19:lastName 19:9999999919
+<list>
+  <contact>
+    <name>name 0</name>
+    <lastName>lastName 0</lastName>
+    <homePhone>999999990</homePhone>
+  </contact>
+  <contact>
+    <name>name 1</name>
+    <lastName>lastName 1</lastName>
+    <homePhone>999999991</homePhone>
+  </contact>
+</list>

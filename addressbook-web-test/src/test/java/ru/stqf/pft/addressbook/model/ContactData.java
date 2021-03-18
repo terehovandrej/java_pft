@@ -23,12 +23,22 @@ public class ContactData {
     @Column(name ="lastname")
     private String lastName;
 
-    @Transient
-    private String email;
-
     @Column(name ="address")
     @Type(type = "text")
     private String address;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastName, that.lastName) && Objects.equals(address, that.address) && Objects.equals(mobilePhone, that.mobilePhone) && Objects.equals(homePhone, that.homePhone) && Objects.equals(workPhone, that.workPhone) && Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, lastName, address, mobilePhone, homePhone, workPhone, email);
+    }
 
     @Transient
     private String group;
@@ -48,9 +58,10 @@ public class ContactData {
     @Transient
     private String allPhones;
 
+
     @Column(name ="email")
     @Type(type = "text")
-    private String firstEmail;
+    private String email;
 
     @Column(name ="email2")
     @Type(type = "text")
@@ -85,11 +96,11 @@ public class ContactData {
     }
 
     public String getFirstEmail() {
-        return firstEmail;
+        return email;
     }
 
     public ContactData withFirstEmail(String firstEmail) {
-        this.firstEmail = firstEmail;
+        this.email = firstEmail;
         return this;
     }
 
@@ -167,24 +178,23 @@ public class ContactData {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastName, that.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, lastName);
-    }
-
-    @Override
     public String toString() {
         return "ContactData{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", group='" + group + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", workPhone='" + workPhone + '\'' +
+                ", allPhones='" + allPhones + '\'' +
+                ", firstEmail='" + email + '\'' +
+                ", secondEmail='" + secondEmail + '\'' +
+                ", thirdEmail='" + thirdEmail + '\'' +
+                ", allEmails='" + allEmails + '\'' +
+                ", photo=" + photo +
                 '}';
     }
 
