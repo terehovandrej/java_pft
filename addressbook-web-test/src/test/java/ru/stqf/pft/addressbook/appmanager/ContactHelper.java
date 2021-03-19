@@ -7,9 +7,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqf.pft.addressbook.model.ContactData;
 import ru.stqf.pft.addressbook.model.Contacts;
+import ru.stqf.pft.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
     public ContactHelper(WebDriver wd) {
@@ -124,6 +126,26 @@ public class ContactHelper extends HelperBase {
         submitContactModification();
     }
 
+    public void addToGroup(ContactData contact, GroupData group) {
+        selectContactById(contact.getId());
+        selectGroup(group);
+        click(By.name("add"));
+    }
+
+    public void selectGroup(GroupData group) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
+    }
+
+    public void filterGroup(GroupData group) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
+    }
+
+    public void filterGroupByName(String name) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(name);
+    }
+
+
+
     public ContactData infoFromEditForm(ContactData contact) {
         initContactModificationById(contact.getId());
         String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
@@ -140,4 +162,38 @@ public class ContactHelper extends HelperBase {
                 .withWorkPhone(work).withMobilePhone(mobile).withFirstEmail(firstEmail)
                 .withSecondEmail(secondEmail).withThirdEmail(thirdEmail).withAddress(address);
     }
+
+    public void removeFromGroup(ContactData contact, GroupData group) {
+        filterGroup(group);
+        selectContactById(contact.getId());
+        click(By.name("remove"));
+    }
+
+    public void deleteRelationIfExist(ContactData contact, GroupData group) {
+        Set<GroupData> groups = contact.getGroups();
+        for (GroupData gr : groups ){
+            if (gr.getName().equals(group.getName())){
+                removeFromGroup(contact, group);
+            }
+        }
+    }
+
+    public void addRelationIfNotExist(ContactData contact, GroupData group){
+        Set<GroupData> groups = contact.getGroups();
+        if (groups.size() == 0){
+            addToGroup(contact, group);
+        }
+        else {
+            for (GroupData gr : groups ){
+                if (gr.getName().equals(group.getName())){
+                    break;
+                }
+                else {
+                    addToGroup(contact, group);
+                }
+            }
+        }
+    }
+
+
 }
