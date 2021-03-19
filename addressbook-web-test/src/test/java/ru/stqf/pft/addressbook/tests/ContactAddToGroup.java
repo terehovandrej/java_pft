@@ -44,8 +44,10 @@ public class ContactAddToGroup extends TestBase{
         app.goTo().gotoHome();
         Contacts contactsAfterAdd = app.db().contacts();
         Groups groupsAfterAdd = new Groups(contactsAfterAdd.getContactById(addedContact.getId()).getGroups());
+        Groups modifiedBeforeAdd = groupsBeforeAdd.withAdded(targetGroup);
         System.out.println("groups Before Add " + groupsBeforeAdd);
         System.out.println("groups After Add " + groupsAfterAdd );
-        assertThat(groupsAfterAdd, equalTo(groupsBeforeAdd.withAdded(targetGroup)));
+        System.out.println("groups After Add " + modifiedBeforeAdd );
+        assertThat(groupsAfterAdd, equalTo(modifiedBeforeAdd));
     }
 }
