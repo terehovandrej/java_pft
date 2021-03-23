@@ -11,6 +11,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactDeleteFromGroup extends TestBase{
+    private ContactData addedContact;
+    private GroupData targetGroup;
     @BeforeMethod
     public void ensurePreconditions() {
         if (app.db().contacts().size() == 0){
@@ -28,11 +30,20 @@ public class ContactDeleteFromGroup extends TestBase{
     }
     @Test
     public void testContactDeleteFromGroup() throws Exception {
-        Contacts contacts = app.db().contacts();
-        ContactData addedContact = contacts.iterator().next();
+        ContactData contact = app.db().contacts().iterator().next();
         Groups groups = app.db().groups();
-        GroupData targetGroup = groups.iterator().next();
-        app.contact().addRelationIfNotExist(addedContact, targetGroup);
+
+        for (GroupData group : groups) {
+            if (contact.getGroups().contains(group)) {
+                targetGroup = group;
+                addedContact = contact;
+                break;
+            }
+            app.contact().addRelationIfNotExist(contact, group);
+            targetGroup = group;
+            addedContact = contact;
+            break;
+        }
         app.goTo().gotoHome();
         app.contact().filterGroupByName("[all]");
         Contacts contactsBeforeDelete = app.db().contacts();
@@ -41,8 +52,6 @@ public class ContactDeleteFromGroup extends TestBase{
         app.goTo().gotoHome();
         Contacts contactsAfterDelete = app.db().contacts();
         Groups groupsAfterDelete = new Groups(contactsAfterDelete.getContactById(addedContact.getId()).getGroups());
-        System.out.println("groups Before delete " + groupsBeforeDelete);
-        System.out.println("groups After delete" + groupsAfterDelete);
         assertThat(groupsAfterDelete, equalTo(groupsBeforeDelete.without(targetGroup)));
     }
 }
