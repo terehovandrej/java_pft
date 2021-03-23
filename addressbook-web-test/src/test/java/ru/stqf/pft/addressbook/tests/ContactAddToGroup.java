@@ -1,19 +1,18 @@
 package ru.stqf.pft.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqf.pft.addressbook.model.ContactData;
 import ru.stqf.pft.addressbook.model.Contacts;
 import ru.stqf.pft.addressbook.model.GroupData;
 import ru.stqf.pft.addressbook.model.Groups;
-
-import java.util.Set;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+
 public class ContactAddToGroup extends TestBase{
+    private ContactData addedContact;
+    private GroupData targetGroup;
     @BeforeMethod
     public void ensurePreconditions() {
         if (app.db().contacts().size() == 0){
@@ -31,11 +30,23 @@ public class ContactAddToGroup extends TestBase{
     }
     @Test
     public void testContactAddToGroup() throws Exception {
-        Contacts contacts = app.db().contacts();
-        ContactData addedContact = contacts.iterator().next();
+        ContactData contact = app.db().contacts().iterator().next();
         Groups groups = app.db().groups();
-        GroupData targetGroup = groups.iterator().next();
-        app.contact().deleteRelationIfExist(addedContact, targetGroup);
+
+        for (GroupData group : groups) {
+            if (!contact.getGroups().contains(group)) {
+                targetGroup = group;
+                addedContact = contact;
+            }else {
+                app.goTo().groupPage();
+                app.group().create(new GroupData().withName("test2"));
+                app.goTo().gotoHome();
+                Groups after = app.db().groups();
+                addedContact = contact;
+                targetGroup = group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()).withName("test2");
+            }
+            break;
+        }
         app.goTo().gotoHome();
         app.contact().filterGroupByName("[all]");
         Contacts contactsBeforeAdd = app.db().contacts();
@@ -45,9 +56,11 @@ public class ContactAddToGroup extends TestBase{
         Contacts contactsAfterAdd = app.db().contacts();
         Groups groupsAfterAdd = new Groups(contactsAfterAdd.getContactById(addedContact.getId()).getGroups());
         Groups modifiedBeforeAdd = groupsBeforeAdd.withAdded(targetGroup);
-        System.out.println("groups Before Add " + groupsBeforeAdd);
-        System.out.println("groups After Add " + groupsAfterAdd );
-        System.out.println("groups After Add " + modifiedBeforeAdd );
         assertThat(groupsAfterAdd, equalTo(modifiedBeforeAdd));
     }
 }
+
+
+
+
+

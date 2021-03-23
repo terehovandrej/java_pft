@@ -179,6 +179,17 @@ public class ContactHelper extends HelperBase {
         }
     }
 
+    public boolean checkRelationIsExist(ContactData contact, GroupData group) {
+        Set<GroupData> groups = contact.getGroups();
+        for (GroupData gr : groups ){
+            if (gr.getId() == (group.getId())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public void addRelationIfNotExist(ContactData contact, GroupData group){
         Set<GroupData> groups = contact.getGroups();
         if (groups.size() == 0){
