@@ -6,6 +6,7 @@
             <class name="ru.stqa.pft.matis.tests.RegistrationTests"/>
             <class name="ru.stqa.pft.matis.tests.LoginTests"/>
             <class name="ru.stqa.pft.matis.tests.ResetPasswordTest"/>
+            <class name="ru.stqa.pft.matis.tests.SoapTests"/>
         </classes>
     </test>
 </suite>

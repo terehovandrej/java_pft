@@ -34,6 +34,15 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/soap-ui" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/soap-ui" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
