@@ -9,6 +9,7 @@ import ru.stqa.pft.model.MailMessage;
 import ru.stqa.pft.model.UsersData;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,7 +22,8 @@ public class ResetPasswordTest extends TestBase{
     }
 
     @Test
-    public void testReset() throws IOException, MessagingException {
+    public void testReset() throws IOException, MessagingException, ServiceException {
+        skipIfNotFixed(1);
         UsersData user = app.db().users().iterator().next();
         String email = user.getEmail();
         String username = user.getUserName();
