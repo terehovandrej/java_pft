@@ -6,6 +6,9 @@ import ru.stqf.pft.addressbook.model.ContactData;
 import ru.stqf.pft.addressbook.model.Contacts;
 import ru.stqf.pft.addressbook.model.GroupData;
 import ru.stqf.pft.addressbook.model.Groups;
+
+import java.io.IOException;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -14,7 +17,8 @@ public class ContactAddToGroup extends TestBase{
     private ContactData addedContact;
     private GroupData targetGroup;
     @BeforeMethod
-    public void ensurePreconditions() {
+    public void ensurePreconditions() throws IOException {
+        skipIfNotFixed(705);
         if (app.db().contacts().size() == 0){
             app.goTo().gotoContactCreation();
             app.contact().createContact(new ContactData().withName("Andrey").withLastName("Terekhov")

@@ -26,8 +26,8 @@ ru/stqf/pft/addressbook/tests/ContactDeletionTests.java
  ru.stqf.pft.addressbook.tests.ContactDeletionTests
 ru/stqf/pft/addressbook/model/ContactData.java
  ru.stqf.pft.addressbook.model.ContactData
-ru/stqf/pft/addressbook/tests/TestBase.java
- ru.stqf.pft.addressbook.tests.TestBase
+ru/stqf/pft/addressbook/tests/ContactDeleteFromGroup.java
+ ru.stqf.pft.addressbook.tests.ContactDeleteFromGroup
 ru/stqf/pft/addressbook/tests/HbConnectionTestContacts.java
  ru.stqf.pft.addressbook.tests.HbConnectionTestContacts
 ru/stqf/pft/addressbook/appmanager/ContactHelper.java
@@ -44,9 +44,12 @@ ru/stqf/pft/addressbook/tests/GroupCreationTests.java
  ru.stqf.pft.addressbook.tests.GroupCreationTests
 ru/stqf/pft/addressbook/generators/ContactDataGenerator.java
  ru.stqf.pft.addressbook.generators.ContactDataGenerator
+ru/stqf/pft/addressbook/model/Issue.java
+ ru.stqf.pft.addressbook.model.Issue
 ru/stqf/pft/addressbook/appmanager/DbHelper.java
  ru.stqf.pft.addressbook.appmanager.DbHelper
-ru/stqf/pft/addressbook/tests/ContactDeleteFromGroup.java
- ru.stqf.pft.addressbook.tests.ContactDeleteFromGroup
+ru/stqf/pft/addressbook/tests/TestBase.java
+ ru.stqf.pft.addressbook.tests.TestBase
+ ru.stqf.pft.addressbook.tests.TestBase$1
 ru/stqf/pft/addressbook/tests/ContactAddToGroup.java
  ru.stqf.pft.addressbook.tests.ContactAddToGroup
