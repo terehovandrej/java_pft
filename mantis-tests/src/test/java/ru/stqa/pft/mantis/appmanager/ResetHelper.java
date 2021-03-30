@@ -25,7 +25,7 @@ public class ResetHelper extends HelperBase {
     }
 
     public void goToUserManage() {
-        click(By.xpath("(//div[@id='sidebar']//li)[6]"));
+        click(By.xpath("(//div[@id='sidebar']//li)[7]"));
         click(By.xpath("(//div[@class='row']//li)[2]"));
 
     }

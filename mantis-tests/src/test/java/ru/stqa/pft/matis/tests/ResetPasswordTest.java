@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.pft.mantis.appmanager.HttpSession;
 import ru.stqa.pft.model.MailMessage;
+import ru.stqa.pft.model.UsersData;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -21,8 +22,9 @@ public class ResetPasswordTest extends TestBase{
 
     @Test
     public void testReset() throws IOException, MessagingException {
-        String email = "user5@localhost.localdomain";
-        String username = "user6";
+        UsersData user = app.db().users().iterator().next();
+        String email = user.getEmail();
+        String username = user.getUserName();
         String password = "password2";
         app.reset().signIn("administrator", "password");
         app.reset().goToUserManage();
