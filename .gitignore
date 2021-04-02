@@ -18,3 +18,5 @@ sandbox/build/classes/java/main/ru/stqa/pft/sandbox/MyFirstProgram.class
 sandbox/src/main/java/ru/stqa/pft/sandbox/MyFirstProgram.java
 sandbox/src/main/java/ru/stqa/pft/sandbox/MyFirstProgram.java
 *.log
+*.html
+mantis-tests/build/tmp/test/jar_extract_5520727284653995403_tmp
